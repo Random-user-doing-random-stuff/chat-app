@@ -1,12 +1,29 @@
-<h2>Available Chats</h2>
-<ul>
-    <% chats.forEach(chat => { %>
-        <li><a href="/chat/<%= chat._id %>"><%= chat.name %></a></li>
-    <% }) %>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Chats</title>
+    <link rel="stylesheet" href="/css/chatList.css"> <!-- Link para o CSS -->
+</head>
+<body>
+    <div class="container">
+        <h2>Available Chats</h2>
+        <ul class="chat-list">
+            <% chats.forEach(chat => { %>
+                <li class="chat-item">
+                    <a href="/chat/<%= chat._id %>" class="chat-link"><%= chat.name %></a>
+                </li>
+            <% }) %>
+        </ul>
 
-<h2>Create a New Chat Room</h2>
-<form action="/chat/create" method="POST">
-    <input type="text" name="name" placeholder="Chat room name" required />
-    <button type="submit">Create</button>
-</form>
+        <h2>Create a New Chat Room</h2>
+        <form action="/chat/create" method="POST" class="chat-form">
+            <input type="text" name="name" placeholder="Chat room name" required class="chat-input" />
+            <button type="submit" class="create-button">Create</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script> <!-- Link para o seu script, se necessário -->
+</body>
+</html>
