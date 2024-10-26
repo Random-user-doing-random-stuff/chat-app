@@ -1,11 +1,10 @@
-/* Reset de estilo básico */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Configuração do body para centralizar o chat */
 body {
     font-family: Arial, sans-serif;
     background-color: #f3f4f6;
@@ -15,7 +14,6 @@ body {
     height: 100vh;
 }
 
-/* Contêiner principal do chat */
 #chat-container {
     width: 90%;
     max-width: 500px;
@@ -28,7 +26,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Lista de mensagens */
 #messages {
     flex-grow: 1;
     padding: 15px;
@@ -44,12 +41,10 @@ body {
     color: #333;
 }
 
-/* Diferenciação visual para mensagens de outros usuários */
 #messages li:nth-child(odd) {
     background-color: #d1d5db;
 }
 
-/* Formulário de envio de mensagem */
 #chat-form {
     display: flex;
     padding: 10px;
@@ -57,7 +52,6 @@ body {
     background-color: #f9fafb;
 }
 
-/* Input de mensagem */
 #message-input {
     flex-grow: 1;
     padding: 10px;
@@ -72,7 +66,6 @@ body {
     border-color: #3b82f6;
 }
 
-/* Botão de envio */
 #chat-form button {
     padding: 10px 20px;
     font-size: 1em;
