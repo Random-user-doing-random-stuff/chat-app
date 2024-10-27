@@ -10,9 +10,8 @@ const User = require('./models/User');
 const Message = require('./models/Message');
 const Chat = require('./models/Chat');
 
-const dotenv = require('dotenv');
-dotenv.config({ path: './config/config.env' });
-console.log(process.env['session_key'])
+const dotenv = require('dotenv').config();
+console.log(process.env.session_key);
 
 // Import Passport Config
 require('./config/passport')(passport);
