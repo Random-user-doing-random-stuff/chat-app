@@ -10,8 +10,8 @@ const User = require('./models/User');
 const Message = require('./models/Message');
 const Chat = require('./models/Chat');
 
-const dotenv = require('dotenv').config();
-console.log(process.env.session_key);
+// Load environment variables
+require('dotenv').config();
 
 // Import Passport Config
 require('./config/passport')(passport);
@@ -29,12 +29,12 @@ app.use(express.static('public'));
 
 // Session middleware
 const sessionMiddleware = session({
-    secret: 'your_secret_key',
+    secret: process.env.SESSION_KEY,
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ 
         mongoUrl: 'mongodb://localhost/chat-app',
-        ttl: 14 * 24 * 60 * 60 // Session expiry (optional, here it's 14 days)
+        ttl: 14 * 24 * 60 * 60 // Session expiry (optional, 14 days)
     }),
     cookie: {
         maxAge: 14 * 24 * 60 * 60 * 1000 // Cookie expiry (14 days)
@@ -47,10 +47,7 @@ app.use(passport.session());
 app.use(express.static('public'));
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost/chat-app', { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true 
-})
+mongoose.connect('mongodb://localhost/chat-app')
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err));
 
@@ -60,8 +57,8 @@ io.use(sharedSession(sessionMiddleware, {
 }));
 
 // Routes
-app.use('/', require('./routes/index')(passport));
-app.use('/chat', require('./routes/chat')(io)); // Chat routes
+app.use('/', require('./routes/index')(passport)); // Pass passport for authentication
+app.use('/chat', require('./routes/chat')(io)); // Pass io for Socket.IO
 
 // Socket.IO connection
 io.on('connection', (socket) => {

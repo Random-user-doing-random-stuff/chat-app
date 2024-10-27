@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Room</title>
-    <link rel="stylesheet" href="/css/chatRoom.css"> <!-- Certifique-se que o caminho está correto -->
+    <link rel="stylesheet" href="/css/chatRoom.css">
 </head>
 <body>
     <div id="chat-container">
@@ -44,7 +44,7 @@
             const message = messageInput.value.trim();
             if (message) {
                 socket.emit('chatMessage', { message });
-                messageInput.value = ''; // Limpar o campo de entrada após o envio
+                messageInput.value = '';
             }
         });
     </script>
