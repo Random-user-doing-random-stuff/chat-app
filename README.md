@@ -1,6 +1,6 @@
 # Chat App
 
-This is a simple chat application built with [your preferred technologies].
+This is a simple chat application built with Ejs.
 
 ## Requirements
 - MongoDB
