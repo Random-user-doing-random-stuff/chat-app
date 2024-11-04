@@ -10,7 +10,7 @@ This is a simple chat application built with Ejs.
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/chat-app.git
+    git clone [https://github.com/yourusername/chat-app.git](https://github.com/Random-user-doing-random-stuff/chat-app)
     ```
 2. Navigate to the project directory:
     ```sh
