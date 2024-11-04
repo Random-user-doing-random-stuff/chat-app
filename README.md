@@ -4,7 +4,7 @@ This is a simple chat application built with [your preferred technologies].
 
 ## Requirements
 - MongoDB
-- Nodejs
+- Node.js
 
 ## Installation
 
